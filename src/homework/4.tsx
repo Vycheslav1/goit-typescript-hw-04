@@ -14,7 +14,7 @@ const MenuSelectedContext = createContext<MenuSelected>({
 
 // Додайте тип MenuAction
 interface MenuAction{
-  onSelectedMenu:React.FC;
+  onSelectedMenu:(menu:Menu)=>void;
 }
 
 const MenuActionContext = createContext<MenuAction>({
@@ -28,7 +28,8 @@ type PropsProvider = {
 function MenuProvider({ children }: PropsProvider) {
   // Додати тип для SelectedMenu він повинен містити { id }
   interface SelectedMenu{
-    PropsMenu:{id:Menu}; 
+    PropsMenu:{id:MenuIds,menus:Menu};
+     
   }
   const [selectedMenu, setSelectedMenu] = useState<SelectedMenu>({});
 

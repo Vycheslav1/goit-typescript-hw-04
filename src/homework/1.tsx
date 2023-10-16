@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 // Опишіть Props
 interface Props {
   children: React.ReactNode;
-  onContentEndVisible:React.FC;
+  onContentEndVisible:()=>void;
 }
 
 export function Observer({ children, onContentEndVisible }: Props) {
@@ -12,14 +12,12 @@ export function Observer({ children, onContentEndVisible }: Props) {
 
   useEffect(() => {
     // Вкажіть правильний тип для options, підказка, клас також можна вказувати як тип
-    interface SomeOptions{
-      obj:IntersectionObserver;
-    }
+    
 
-    const options:React.SomeOptions = {
+    const options:IntersectionObserverInit = {
       rootMargin: '0px',
       threshold: 1.0,
-      root: null,
+      root:
     };
 
     const observer = new IntersectionObserver((entries) => {

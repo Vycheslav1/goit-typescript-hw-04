@@ -5,7 +5,7 @@ interface State{
   requestStep: string,
 }
 interface Action{
-type:string;
+type: 'idle' | 'start' | 'pending' | 'finished';
 
 }
 
