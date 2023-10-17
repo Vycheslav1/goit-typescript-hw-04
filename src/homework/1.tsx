@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 // Опишіть Props
 interface Props {
   children: React.ReactNode;
-  onContentEndVisible:()=>void;
+  onContentEndVisible: () => void;
 }
 
 export function Observer({ children, onContentEndVisible }: Props) {
@@ -12,12 +12,11 @@ export function Observer({ children, onContentEndVisible }: Props) {
 
   useEffect(() => {
     // Вкажіть правильний тип для options, підказка, клас також можна вказувати як тип
-    
 
-    const options:IntersectionObserverInit = {
-      rootMargin: '0px',
+    const options: IntersectionObserverInit = {
+      rootMargin: "0px",
       threshold: 1.0,
-      root:
+      root: null,
     };
 
     const observer = new IntersectionObserver((entries) => {
